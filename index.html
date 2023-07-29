@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WSA Side-loader</title>
+
+    <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet" />
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+
+  <body class="ms-Fabric ms-fontSize-regular">
+    <main>
+      <fluent-card class="file-list">
+        <div class="row" style="gap: 5px">
+          <p>Host Address:</p>
+          <fluent-text-field
+            style="width: 150px"
+            placeholder="127.0.0.1:55555"
+            disabled
+            id="edit-field"
+            appearance="outline"
+          ></fluent-text-field>
+          <fluent-button appearance="lightweight" id="edit-address-btn"
+            >Edit</fluent-button
+          >
+          <fluent-button appearance="lightweight" id="edit-cancel-btn" hidden>
+            <i
+              class="ms-Icon ms-Icon--Cancel"
+              style="vertical-align: middle"
+            ></i>
+          </fluent-button>
+        </div>
+        <p>Host Status: <span id="conn-status">N/A</span></p>
+        <div class="row" style="margin-bottom: 10px; gap: 5px">
+          <span>Theme</span>
+          <fluent-button appearance="stealth" id="theme-toggler">
+            <i
+              class="ms-Icon ms-Icon--Light"
+              style="vertical-align: middle"
+            ></i>
+          </fluent-button>
+          <fluent-tooltip anchor="theme-toggler"> Toggle Theme </fluent-tooltip>
+        </div>
+        <fluent-divider style="margin: 20px 0"></fluent-divider>
+        <div style="overflow: auto; height: 75%">
+          <div>
+            <fluent-tabs activeid="entrees">
+              <fluent-tab id="selectedApps">Selected Apps</fluent-tab>
+              <fluent-tab style="margin-left: 20px" id="appsInDir"
+                >Apps Folder</fluent-tab
+              >
+              <fluent-tab style="margin-left: 20px" id="installedApps"
+                >Installed Apps</fluent-tab
+              >
+              <fluent-tab-panel id="selectedAppsPanel">
+                <div>
+                  <h3 class="ms-fontSize-semibold">Selected Applications</h3>
+                  <ul id="chosen-apks"></ul>
+                  <fluent-button appearance="accent" id="install-all-btn"
+                    >Install All</fluent-button
+                  >
+                  <fluent-button appearance="neutral" id="remove-all-btn"
+                    >Remove All</fluent-button
+                  >
+                </div>
+              </fluent-tab-panel>
+              <fluent-tab-panel id="appsInDirPanel">
+                <h3 class="ms-fontSize-semibold">
+                  Applications in this directory
+                </h3>
+                <p class="ms-fontSize-12 ms-fontColor-neutralTertiary">
+                  Default directory: <span id="default-dir">N/A</span>
+                  <fluent-button
+                    id="change-app-dir"
+                    appearance="lightweight"
+                    class="ms-fontSize-12"
+                    style="vertical-align: middle"
+                    >Change</fluent-button
+                  >
+                </p>
+                <ul id="all-apps"></ul>
+              </fluent-tab-panel>
+              <fluent-tab-panel id="installedAppsPanel">
+                <h3 class="ms-fontSize-semibold">Installed Apps</h3>
+                <ul id="installed-apps"></ul>
+              </fluent-tab-panel>
+            </fluent-tabs>
+          </div>
+        </div>
+      </fluent-card>
+      <div>
+        <div
+          style="
+            height: 100%;
+            display: grid;
+            gap: 10px;
+            grid-template-rows: 40% minmax(0, 60%);
+          "
+        >
+          <form>
+            <label for="upload-button" id="dropzone">
+              <fluent-card class="dropzone-card">
+                <p class="row">
+                  <i class="ms-Icon ms-Icon--Upload" aria-hidden="true"></i
+                  >Choose Or Drop Apk
+                </p>
+                <div id="error"></div>
+              </fluent-card>
+            </label>
+          </form>
+          <fluent-card id="resp-msg">
+            <h3>Logs</h3>
+          </fluent-card>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

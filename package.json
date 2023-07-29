@@ -1,0 +1,23 @@
+{
+  "name": "wsa-sideloader",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@fluentui/web-components": "^2.5.16",
+    "@tauri-apps/api": "^1.4.0",
+    "office-ui-fabric-core": "^11.1.0",
+    "tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store#v1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.4.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.4"
+  }
+}
